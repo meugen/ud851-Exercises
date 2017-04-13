@@ -30,17 +30,17 @@ public class TaskContentProvider extends ContentProvider {
     // COMPLETED (1) Define final integer constants for the directory of tasks and a single item.
     // It's convention to use 100, 200, 300, etc for directories,
     // and related ints (101, 102, ..) for items in that directory.
-    private static final int TASKS = 100;
-    private static final int TASK_BY_ID = 101;
+    public static final int TASKS = 100;
+    public static final int TASK_WITH_ID = 101;
 
     // COMPLETED (3) Declare a static variable for the Uri matcher that you construct
     private static final UriMatcher MATCHER = buildUriMatcher();
 
     // COMPLETED (2) Define a static buildUriMatcher method that associates URI's with their int match
-    private static UriMatcher buildUriMatcher() {
+    public static UriMatcher buildUriMatcher() {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
         matcher.addURI(TaskContract.AUTHORITY, TaskContract.PATH_TASKS, TASKS);
-        matcher.addURI(TaskContract.AUTHORITY, TaskContract.PATH_TASKS + "/#", TASK_BY_ID);
+        matcher.addURI(TaskContract.AUTHORITY, TaskContract.PATH_TASKS + "/#", TASK_WITH_ID);
         return matcher;
     }
 
